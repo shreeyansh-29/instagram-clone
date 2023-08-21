@@ -6,16 +6,17 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StatusBar, Text, useColorScheme} from 'react-native';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 import MainNavigation from './src/navigator';
+import {colorPalette} from './src/constants/colorPalette';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode
+      ? colorPalette.blackColor
+      : colorPalette.whiteColor,
   };
 
   return (
@@ -24,7 +25,6 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <Text>Hello</Text>
       <MainNavigation />
     </SafeAreaView>
   );

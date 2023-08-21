@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeStack from '../stacks/homeStack';
@@ -7,8 +8,9 @@ import ReelStack from '../stacks/reelStack';
 import ProfileStack from '../stacks/profileStack';
 import Foundation from 'react-native-vector-icons/Foundation';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import {faHeart, faSquarePlus} from '@fortawesome/free-regular-svg-icons';
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
+import {Image} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +21,7 @@ const BottomNavigator = (): JSX.Element => {
       screenOptions={() => ({
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarStyle: {height: 60},
+        tabBarStyle: {height: 54},
         tabBarInactiveTintColor: '#555',
         tabBarInactiveBackgroundColor: 'white',
         tabBarActiveTintColor: 'red',
@@ -34,7 +36,7 @@ const BottomNavigator = (): JSX.Element => {
         key={1}
         options={{
           tabBarIcon: (): any => {
-            return <Foundation name="home" color="black" />;
+            return <Foundation name="home" color="black" size={26} />;
           },
         }}
       />
@@ -44,7 +46,7 @@ const BottomNavigator = (): JSX.Element => {
         key={2}
         options={{
           tabBarIcon: (): any => {
-            return <EvilIcons name="search" color="black" />;
+            return <FontAwesomeIcon icon={faSearch} color="black" size={22} />;
           },
         }}
       />
@@ -54,7 +56,17 @@ const BottomNavigator = (): JSX.Element => {
         key={3}
         options={{
           tabBarIcon: (): any => {
-            return <FontAwesomeIcon icon={faSquarePlus} color="black" />;
+            return (
+              <FontAwesomeIcon icon={faSquarePlus} color="black" size={24} />
+              // <Image
+              //   style={{
+              //     width: 22,
+              //     height: 22,
+              //   }}
+              //   source={require('../../assests/images/more.png')}
+              //   resizeMode="contain"
+              // />
+            );
           },
         }}
       />
@@ -64,7 +76,7 @@ const BottomNavigator = (): JSX.Element => {
         key={4}
         options={{
           tabBarIcon: (): any => {
-            return <FontAwesomeIcon icon={faHeart} color="black" />;
+            return <FontAwesomeIcon icon={faHeart} color="black" size={24} />;
           },
         }}
       />
@@ -74,7 +86,17 @@ const BottomNavigator = (): JSX.Element => {
         key={5}
         options={{
           tabBarIcon: (): any => {
-            return <EvilIcons name="user" color="black" />;
+            return (
+              <Image
+                style={{
+                  width: 24,
+                  height: 24,
+                  borderRadius: 12,
+                }}
+                source={require('../../assests/images/John.jpg')}
+                resizeMode="contain"
+              />
+            );
           },
         }}
       />

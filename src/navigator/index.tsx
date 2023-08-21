@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomNavigator from './bottomNavigator';
 import HomeStack from './stacks/homeStack';
 import SearchStack from './stacks/searchStack';
+import MessagingScreen from '../screens/message';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ const MainNavigation = (): JSX.Element => {
           <Stack.Screen name="PostStack" component={SearchStack} />
           <Stack.Screen name="ReelStack" component={SearchStack} />
           <Stack.Screen name="ProfileStack" component={SearchStack} />
+          <Stack.Screen name="Message" component={MessagingScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
